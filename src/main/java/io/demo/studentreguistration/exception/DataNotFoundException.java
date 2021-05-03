@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(code = HttpStatus.NOT_FOUND)
 public class DataNotFoundException extends RuntimeException {
 
-    public DataNotFoundException(Long id){
-        super("data is not found with : " + id);
+    public DataNotFoundException(){
+        super("data is not found : ");
     }
     
 }

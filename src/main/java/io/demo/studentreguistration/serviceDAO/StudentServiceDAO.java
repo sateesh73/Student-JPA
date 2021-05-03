@@ -8,16 +8,16 @@ import io.demo.studentreguistration.model.Student;
 
 public interface StudentServiceDAO {
 
-    public List<Student> getAllStudent();
+    public ResponseEntity<List<Student>> getAllStudent();
 
-    public ResponseEntity<Object> getStudent(Long id);
+    public ResponseEntity<Student> getStudent(Long id);
 
-    public ResponseEntity<Object> createStudent(List<Student> student);
+    public ResponseEntity<Student> createStudents(List<Student> student);
 
-    public ResponseEntity<Object> deleteStudent(Long id);
+    public ResponseEntity<Student> deleteStudent(Long id);
 
-    public ResponseEntity<Object> updateStudent(Student student, Long id);
-    
-    public ResponseEntity<Object> createOneStudent(Student student);
-    
+    public ResponseEntity<Student> updateStudent(Student student, Long id);
+
+    public ResponseEntity<Student> createStudent(Student student);
+
 }
