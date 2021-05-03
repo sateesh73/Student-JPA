@@ -49,7 +49,7 @@ public class StudentController {
         return this.studentService.deleteStudent(Long.parseLong(id));
     }
 
-    @GetMapping("/student")
+    @PostMapping("/student")
     public ResponseEntity<Object> createStudent(@RequestBody Student student) {
         return this.studentService.createOneStudent(student);
     }

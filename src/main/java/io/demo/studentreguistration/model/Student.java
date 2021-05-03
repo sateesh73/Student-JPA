@@ -3,6 +3,7 @@ package io.demo.studentreguistration.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +21,12 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Name name;
-    @OneToMany
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Address> address;
+    
     @Past(message = "Date of Birth should be in Past")
     private LocalDate dob;
     @Size(min = 0, max = 10, message = "Mobile Number should be 10 digit")
@@ -57,14 +60,6 @@ public class Student {
         this.name = name;
     }
 
-    public List<Address> getAddress() {
-        return address;
-    }
-
-    public void setAddress(List<Address> address) {
-        this.address = address;
-    }
-
     public LocalDate getDob() {
         return dob;
     }
@@ -81,9 +76,17 @@ public class Student {
         this.mobileNumber = mobileNumber;
     }
 
+    public List<Address> getAddress() {
+        return address;
+    }
+
+    public void setAddress(List<Address> address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "Student [address=" + address + ", dob=" + dob + ", id=" + id + ", mobileNumber=" + mobileNumber
+        return "Student [List<Address>=" + address + ", dob=" + dob + ", id=" + id + ", mobileNumber=" + mobileNumber
                 + ", name=" + name + "]";
     }
 
